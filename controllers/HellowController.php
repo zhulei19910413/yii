@@ -4,6 +4,8 @@ use yii\web\Controller;
 use Yii;
 use yii\web\Cookie;
 use app\models\Test;
+use app\models\Customer;
+use app\models\Order;
 
 
 class HellowController extends Controller{
@@ -92,7 +94,7 @@ class HellowController extends Controller{
         return $this->render('about');
     }
 
-
+    //查询
     public function actionTest3(){
 
         //查询；
@@ -100,21 +102,86 @@ class HellowController extends Controller{
 //        $res = Test::findBySql($sql)->all();
 
         //id=1
-        $res = Test::find()->where(['id'=>1])->all();
+//        $res = Test::find()->where(['id'=>1])->all();
 
         //id>0
-        $res = Test::find()->where(['>','id',0])->all();
+//        $res = Test::find()->where(['>','id',0])->all();
 
         //id>=1 且  id<=2
-        $res = Test::find()->where(['between','id',1,2])->all();
+//        $res = Test::find()->where(['between','id',1,2])->all();
 
         //title like "%title1%"
-        $res = Test::find()->where(['like','title','title1'])->all();
+//        $res = Test::find()->where(['like','title','title'])->all();
 
+        //查询结果转化数组；
+//        $res = Test::find()->where(['like','title','title'])->asArray()->all();
 
-        print_r($res);
+//        print_r($res);
+
+        //批量查询；
+        foreach(Test::find()->batch(1) as $tests){
+            print_r(count($tests));
+        }
+
 
     }
+
+
+    //删除
+    public function actionDelete(){
+
+        //删除数据；
+//        $res = Test::find()->where(['id'=>1])->all();
+//        $res[0]->delete();
+
+        Test::deleteAll('id>:id',array(':id'=>0));
+
+    }
+
+    //新增
+    public function actionCreat(){
+
+        $test = new Test;
+
+//        $test->title = 'zhangsan';
+        $test->title = 333;
+
+        //核心验证器；
+        $test->validate();
+        if($test->hasErrors()){
+            echo 'data is error';
+            exit;
+        }
+        $test->save();
+
+    }
+
+
+    //修改；
+    public function actionUpdate()
+    {
+
+        $test = Test::find()->where(['id'=>4])->one();
+        $test->title = 'title4444444';
+        $test->save();
+
+    }
+
+
+    //关联查询；
+    public function actionSelect(){
+
+        $customer = Customer::find()->where(['name'=>'zhangsan'])->one();
+
+//        $oreder = $customer->hasMany('app\models\Order',['customer_id'=>'id'])->asArray()->all();
+//        $oreder = $customer->hasMany(Order::className(),['customer_id'=>'id'])->asArray()->all();
+
+        $oreder = $customer->getOrders();
+
+        var_dump($oreder);
+
+    }
+
 
 
 }
