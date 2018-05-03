@@ -25,6 +25,12 @@ class DealController extends BaseController{
     //新增；
     public function actionNewDeal(){
 
+        return $this->render('deal_new.html',array(
+            'home'=>'home2018',
+            'admin'=>'zhulei123',
+            'title'=>'22222'
+        ));
+
     }
 
 
