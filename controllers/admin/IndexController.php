@@ -17,9 +17,10 @@ class IndexController extends BaseController{
 
         echo 'this is home';
 
-        return $this->render('index.tpl',array(
+        return $this->render('index.php',array(
             'home'=>'home2018',
-            'admin'=>'zhulei123'
+            'admin'=>'zhulei123',
+            'title'=>'22222'
         ));
     }
 

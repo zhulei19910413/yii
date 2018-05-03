@@ -1,9 +1,16 @@
-<!DOCTYPE html>
-
 <?php
-$http = 'http://localhost:8081/demo3/basic/';
+
+/* @var $this \yii\web\View */
+/* @var $content string */
+
+use app\assets\AppAsset;
+
+AppAsset::register($this);
+//AppAsset::addScript($this,'assets/js/jquery.min.js');
+//AppAsset::registerAssets($this,['js'=>['js/jquery.min.js'],'depends'=>['yii\jui\JuiAsset']])
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -13,22 +20,22 @@ $http = 'http://localhost:8081/demo3/basic/';
 		<meta name="description" content="This is page-header (.page-header &gt; h1)" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-		<link rel="stylesheet" href="<?php echo $http?>assets/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="<?php echo $http?>assets/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="<?php echo $http?>assets/css/ace.min.css" id="main-ace-style" />
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="assets/css/ace.min.css" id="main-ace-style" />
 
 
 		<!--[if lte IE 9]>
-			<link rel="stylesheet" href="<?php echo $http?>assets/css/ace-part2.min.css" />
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" />
 		<![endif]-->
-		<link rel="stylesheet" href="<?php echo $http?>assets/css/ace-skins.min.css" />
-		<link rel="stylesheet" href="<?php echo $http?>assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
 		<!--[if lte IE 9]>
-		  <link rel="stylesheet" href="<?php echo $http?>assets/css/ace-ie.min.css" />
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
 		<![endif]-->
 		<!--[if lte IE 8]>
-		<script src="<?php echo $http?>assets/js/html5shiv.min.js"></script>
-		<script src="<?php echo $http?>assets/js/respond.min.js"></script>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
 	</head>
 	<body class="no-skin">
@@ -48,9 +55,9 @@ $http = 'http://localhost:8081/demo3/basic/';
 				<!-- /section:basics/sidebar.mobile.toggle -->
 				<div class="navbar-header pull-left">
 					<!-- #section:basics/navbar.layout.brand -->
-					<a href="<?php echo $http?>index.html" class="navbar-brand">
+					<a href="index.html" class="navbar-brand">
 						<small>
-							<img src="<?php echo $http?>assets/avatars/logo.png" alt="" />
+							<img src="assets/avatars/logo.png" alt="" />
 						</small>
 					</a>
 				</div>
@@ -74,7 +81,7 @@ $http = 'http://localhost:8081/demo3/basic/';
 									<ul class="dropdown-menu dropdown-navbar">
 										<li>
 											<a href="#">
-												<img src="<?php echo $http?>assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+												<img src="assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">B2C:</span>
@@ -91,7 +98,7 @@ $http = 'http://localhost:8081/demo3/basic/';
 
 										<li>
 											<a href="#">
-												<img src="<?php echo $http?>assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+												<img src="assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">积分商城:</span>
@@ -108,7 +115,7 @@ $http = 'http://localhost:8081/demo3/basic/';
 
 										<li>
 											<a href="#">
-												<img src="<?php echo $http?>assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+												<img src="assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">政府机票采购:</span>
@@ -125,7 +132,7 @@ $http = 'http://localhost:8081/demo3/basic/';
 
 										<li>
 											<a href="#">
-												<img src="<?php echo $http?>assets/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
+												<img src="assets/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">B2B:</span>
@@ -142,7 +149,7 @@ $http = 'http://localhost:8081/demo3/basic/';
 
 										<li>
 											<a href="#">
-												<img src="<?php echo $http?>assets/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
+												<img src="assets/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">货运系统:</span>
@@ -171,7 +178,7 @@ $http = 'http://localhost:8081/demo3/basic/';
 						<!-- #section:basics/navbar.user_menu -->
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="<?php echo $http?>assets/avatars/user.jpg" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
 									欢迎您<br />
 									陈子昂
@@ -643,7 +650,7 @@ $http = 'http://localhost:8081/demo3/basic/';
 									南航开通华中首条直达美国航线，广州-武汉-旧金山首航，为中部崛起注入创新活力
 								</div>
 								<div class="row center">
-									<img src="<?php echo $http?>assets/avatars/logo_2.png" />
+									<img src="assets/avatars/logo_2.png" />
 								</div><!-- /.row -->
 
 								<!-- PAGE CONTENT ENDS -->
@@ -673,25 +680,25 @@ $http = 'http://localhost:8081/demo3/basic/';
 
 		<!--[if !IE]> -->
 			<script type="text/javascript">
-				window.jQuery || document.write("<script src='<?php echo $http?>assets/js/jquery.min.js'>"+"<"+"/script>");
+				window.jQuery || document.write("<script src='assets/js/jquery.min.js'>"+"<"+"/script>");
 			</script>
 		<!-- <![endif]-->
 		<!--[if IE]>
 			<script type="text/javascript">
-			 window.jQuery || document.write("<script src='<?php echo $http?>assets/js/jquery1x.min.js'>"+"<"+"/script>");
+			 window.jQuery || document.write("<script src='assets/js/jquery1x.min.js'>"+"<"+"/script>");
 			</script>
 		<![endif]-->
 		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='<?php echo $http?>assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
-		<script src="<?php echo $http?>assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
 		<!--[if lte IE 8]>
-		  <script src="<?php echo $http?>assets/js/excanvas.min.js"></script>
+		  <script src="assets/js/excanvas.min.js"></script>
 		<![endif]-->
-		<script src="<?php echo $http?>assets/js/jquery-ui.custom.min.js"></script>
-		<script src="<?php echo $http?>assets/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="<?php echo $http?>assets/js/ace-elements.min.js"></script>
-		<script src="<?php echo $http?>assets/js/ace.min.js"></script>
+		<script src="assets/js/jquery-ui.custom.min.js"></script>
+		<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
 
 	</body>
 </html>
