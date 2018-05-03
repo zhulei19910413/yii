@@ -13,15 +13,13 @@ use app\components\BaseController;
 class IndexController extends BaseController{
 
     public function actionHome(){
-//        echo phpinfo();die;
 
-        echo 'this is home';
-
-        return $this->render('index.php',array(
+        return $this->render('index.html',array(
             'home'=>'home2018',
             'admin'=>'zhulei123',
             'title'=>'22222'
         ));
+
     }
 
 }
