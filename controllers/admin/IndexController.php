@@ -13,9 +13,14 @@ use app\components\BaseController;
 class IndexController extends BaseController{
 
     public function actionHome(){
+//        echo phpinfo();die;
+
         echo 'this is home';
 
-        return $this->render('index.tpl');
+        return $this->render('index.tpl',array(
+            'home'=>'home2018',
+            'admin'=>'zhulei123'
+        ));
     }
 
 }

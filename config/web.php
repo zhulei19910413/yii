@@ -42,6 +42,16 @@ $config = [
                 ],
             ],
         ],
+        'view' => [
+            'renderers' => [
+                'tpl' => [
+                    'class' => 'yii\smarty\ViewRenderer',
+                    'compilePath' => '@runtime/smarty/compile',
+                    'pluginDirs' => ['@vendor/smarty/plugin']
+                    //'cachePath' => '@runtime/Smarty/cache',
+                ],
+            ],
+        ],
         'db' => $db,
         /*
         'urlManager' => [
