@@ -15,9 +15,14 @@ class DealController extends BaseController{
     //列表页；
     public function actionGetDeals(){
 
-        $this->module  =  new DealModel();
-        $res = $this->module->getDeals();
-        echo 111;
+        $dealModel  =  new DealModel();
+        $res = $dealModel->getDeals();
+
+        return $this->render('deal_list.html',array(
+            'home'=> $res,
+            'admin'=>'zhulei123',
+            'title'=>'22222'
+        ));
 
 
     }

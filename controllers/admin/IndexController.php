@@ -12,6 +12,8 @@ use app\components\BaseController;
 
 class IndexController extends BaseController{
 
+    //后台首页；
+    //http://localhost/yii/web/index.php?r=admin/index/home
     public function actionHome(){
 
         return $this->render('index.html',array(

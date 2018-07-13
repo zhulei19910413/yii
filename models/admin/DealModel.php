@@ -14,10 +14,10 @@ use yii\base\Model;
 
 class DealModel extends Model{
 
-
     public function GetDeals(){
-        echo 222;
-    }
 
+        $aaa = '这是列表页';
+        return $aaa;
+    }
 
 }

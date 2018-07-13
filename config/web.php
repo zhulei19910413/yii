@@ -50,6 +50,11 @@ $config = [
                     'pluginDirs' => ['@vendor/smarty/plugin']
                     //'cachePath' => '@runtime/Smarty/cache',
                 ],
+                'html' => [
+                    'class' => 'yii\smarty\ViewRenderer',
+                    'compilePath' => '@runtime/smarty/compile',
+                    'pluginDirs' => ['@vendor/smarty/plugin']
+                ],
             ],
         ],
         'db' => $db,
