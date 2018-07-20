@@ -4,11 +4,12 @@ namespace app\controllers\admin;
 use app\components\BaseController;
 use app\models\admin\DealModel;
 use yii;
+use yii\helpers\Url;
 
 class DealController extends BaseController{
 
     public function actionIndex(){
-        echo 222;
+
     }
 
 
@@ -16,12 +17,10 @@ class DealController extends BaseController{
     public function actionGetDeals(){
 
         $dealModel  =  new DealModel();
-        $res = $dealModel->getDeals();
+        $data = $dealModel->getDeals();
 
         return $this->render('deal_list.html',array(
-            'home'=> $res,
-            'admin'=>'zhulei123',
-            'title'=>'22222'
+            'deallist'=> $data,
         ));
 
 
@@ -31,9 +30,7 @@ class DealController extends BaseController{
     public function actionNewDeal(){
 
         return $this->render('deal_new.html',array(
-            'home'=>'home2018',
-            'admin'=>'zhulei123',
-            'title'=>'22222'
+            'deal'=> array('id'=>'','title'=>'','title_ex'=>'','body'=>'','note'=>''),
         ));
 
     }
@@ -42,15 +39,62 @@ class DealController extends BaseController{
     //修改；
     public function actionUpdateDeal(){
 
+
+        $data['id'] = $this->request->post('id');
+        $data['title'] = $this->request->post('title');
+        $data['title_ex']  = $this->request->post('title_ex');
+        $data['image_url'] = $this->request->post('image_url','test');
+        $data['body'] = $this->request->post('content','');
+        $data['note'] = $this->request->post('remarks','');
+        $data['create_time'] = $data['update_time'] = date("Y-m-d H:i:s", time());
+
+        $dealModel  =  new DealModel();
+
+        if(empty($data['id'])){
+
+            //新建
+            $res = $dealModel->NewDeal($data);
+            if($res){
+                //去列表；
+                $url = Url::to(['admin/deal/get-deals']);
+                $this->redirect($url);
+            }else{
+                echo "添加失败";
+            }
+        }else{
+            //修改
+
+        }
+
+
     }
 
     //删除；
     public function actionDeleteDeal(){
 
+        $id = $this->request->get('id');
+        $dealModel  =  new DealModel();
+        $res = $dealModel->Delete($id);
+        if($res){
+            //去列表；
+            $url = Url::to(['admin/deal/get-deals']);
+            $this->redirect($url);
+        }else{
+            echo "删除失败";
+        }
+
     }
 
     //info；
     public function actionDealInfo(){
+
+        $id = $this->request->get('id');
+        $dealModel  =  new DealModel();
+        $data = $dealModel->getInfo($id);
+
+        return $this->render('deal_new.html',array(
+            'deal'=>$data,
+        ));
 
     }
 

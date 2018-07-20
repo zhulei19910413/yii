@@ -16,9 +16,25 @@ use yii\base\Controller;
 
 class BaseController extends Controller{
 
+    public $request;
+    public $session;
+    public $view;
+
     public function init(){
 
-//        echo 333;
+        parent::init();
+        $this->request = Yii::$app->request;
+        $this->session = Yii::$app->session;
+        $this->view = Yii::$app->view;
+        if (!$this->session->isActive)
+            // open a session
+            $this->session->open();
+
+    }
+
+    public function redirect($url){
+
+        Yii::$app->getResponse()->redirect($url);
 
     }
 

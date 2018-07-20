@@ -232,3 +232,39 @@ vendor/bin/codecept run functional,unit -- --coverage-html --coverage-xml
 
 You can see code coverage output under the `tests/_output` directory.
 # yii
+
+
+
+
+项目：
+
+    MVC
+
+
+数据库：
+
+    deal库
+    --------deal
+    --------city
+    --------category
+    
+    sso库    
+    ---------user
+    ---------editor
+    
+    
+    
+CREATE TABLE `deal` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `title_ex` varchar(255) NOT NULL,
+  `image_url` varchar(255) NOT NULL DEFAULT '' COMMENT '图片地址',
+  `body` mediumtext CHARACTER SET utf8mb4 NOT NULL COMMENT '中文内容',
+  `url` varchar(255) NOT NULL,
+  `editor_id` int(11) NOT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
