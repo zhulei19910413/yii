@@ -245,7 +245,6 @@ You can see code coverage output under the `tests/_output` directory.
 
     deal库
     --------deal
-    --------city
     --------category
     
     sso库    
@@ -253,7 +252,7 @@ You can see code coverage output under the `tests/_output` directory.
     ---------editor
     
     
-    
+DROP TABLE IF EXISTS `deal`;
 CREATE TABLE `deal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -263,8 +262,8 @@ CREATE TABLE `deal` (
   `url` varchar(255) NOT NULL,
   `editor_id` int(11) NOT NULL,
   `note` varchar(255) DEFAULT NULL,
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `province` int(11) DEFAULT NULL COMMENT '省份id',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 

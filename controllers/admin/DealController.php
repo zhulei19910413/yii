@@ -30,7 +30,8 @@ class DealController extends BaseController{
     public function actionNewDeal(){
 
         return $this->render('deal_new.html',array(
-            'deal'=> array('id'=>'','title'=>'','title_ex'=>'','body'=>'','note'=>''),
+            'deal'=> array('id'=>'','title'=>'','title_ex'=>'','body'=>'','note'=>'','province'=>''),
+            'city'=>$this->city,
         ));
 
     }
@@ -39,15 +40,14 @@ class DealController extends BaseController{
     //修改；
     public function actionUpdateDeal(){
 
-
         $data['id'] = $this->request->post('id');
         $data['title'] = $this->request->post('title');
         $data['title_ex']  = $this->request->post('title_ex');
+        $data['province']  = $this->request->post('province');
         $data['image_url'] = $this->request->post('image_url','test');
         $data['body'] = $this->request->post('content','');
         $data['note'] = $this->request->post('remarks','');
-        $data['create_time'] = $data['update_time'] = date("Y-m-d H:i:s", time());
-
+        $data['create_time'] = date("Y-m-d H:i:s", time());
         $dealModel  =  new DealModel();
 
         if(empty($data['id'])){
@@ -62,7 +62,16 @@ class DealController extends BaseController{
                 echo "添加失败";
             }
         }else{
+
             //修改
+            $res = $dealModel->updateDeal($data);
+            if($res){
+                //去列表；
+                $url = Url::to(['admin/deal/get-deals']);
+                $this->redirect($url);
+            }else{
+                echo "修改失败";
+            }
 
         }
 
@@ -94,6 +103,7 @@ class DealController extends BaseController{
 
         return $this->render('deal_new.html',array(
             'deal'=>$data,
+            'city'=>$this->city,
         ));
 
     }

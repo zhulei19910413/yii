@@ -19,6 +19,7 @@ class BaseController extends Controller{
     public $request;
     public $session;
     public $view;
+    public $city;
 
     public function init(){
 
@@ -29,6 +30,8 @@ class BaseController extends Controller{
         if (!$this->session->isActive)
             // open a session
             $this->session->open();
+
+        $this->city  = Yii::$app->params['citylist'];
 
     }
 
