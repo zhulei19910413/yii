@@ -243,11 +243,9 @@ You can see code coverage output under the `tests/_output` directory.
 
 数据库：
 
-    deal库
+    dealdata库
     --------deal
     --------category
-    
-    sso库    
     ---------user
     ---------editor
     
@@ -266,4 +264,19 @@ CREATE TABLE `deal` (
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+
+
+
+-- ----------------------------
+DROP TABLE IF EXISTS `editor`;
+CREATE TABLE `editor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uname` varchar(32) DEFAULT NULL,
+  `password` varbinary(64) DEFAULT NULL,
+  `privilege` enum('super','administrator','editor') DEFAULT NULL,
+  `state` enum('activated','disabled') DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=422 DEFAULT CHARSET=utf8;
+
 

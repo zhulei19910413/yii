@@ -3,7 +3,6 @@ namespace app\controllers\admin;
 
 use app\components\BaseController;
 use app\models\admin\DealModel;
-use yii;
 use yii\helpers\Url;
 
 class DealController extends BaseController{
@@ -22,7 +21,6 @@ class DealController extends BaseController{
         return $this->render('deal_list.html',array(
             'deallist'=> $data,
         ));
-
 
     }
 
